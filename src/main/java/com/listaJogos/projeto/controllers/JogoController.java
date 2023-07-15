@@ -15,18 +15,18 @@ import com.listaJogos.projeto.services.JogoService;
 
 @RestController
 @CrossOrigin
-@RequestMapping("/jogos")
+@RequestMapping("/api")
 public class JogoController {
     @Autowired
     JogoService jogoService;
 
-    @GetMapping("/buscarJogo")
+    @GetMapping("jogo/buscar")
     public List<JogoMinDto> buscarTodosJogos() {
         List<JogoMinDto> resultado = jogoService.findAll();
         return resultado;
     }
 
-    @GetMapping("/buscarJogo/{id}")
+    @GetMapping("jogo/buscar/{id}")
     public JogoDto buscarUmJogo(@PathVariable(value = "id") Long id){
         JogoDto resultado = jogoService.findById(id);
         return resultado;

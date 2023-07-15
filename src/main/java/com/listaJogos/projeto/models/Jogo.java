@@ -26,10 +26,10 @@ public class Jogo {
     @Column(columnDefinition = "TEXT")
     private String descricaoLonga;
 
-    public Jogo(){
+    public Jogo() {
     }
 
-    public Jogo(long id, String titulo, Double pontuacao,Integer ano, String genero, String plataformas, String imagem,
+    public Jogo(long id, String titulo, Double pontuacao, Integer ano, String genero, String plataformas, String imagem,
             String descricaoCurta, String descricaoLonga) {
         this.id = id;
         this.titulo = titulo;
@@ -57,7 +57,7 @@ public class Jogo {
     public void setTitulo(String titulo) {
         this.titulo = titulo;
     }
-    
+
     public Double getPontuacao() {
         return pontuacao;
     }
@@ -115,19 +115,19 @@ public class Jogo {
     }
 
     @Override
-	public int hashCode() {
-		return Objects.hash(id);
-	}
+    public int hashCode() {
+        return Objects.hash(id);
+    }
 
-	@Override
-	public boolean equals(Object obj) {
-		if (this == obj)
-			return true;
-		if (obj == null)
-			return false;
-		if (getClass() != obj.getClass())
-			return false;
-		Jogo other = (Jogo) obj;
-		return Objects.equals(id, other.id);
-	}
+    @Override
+    public boolean equals(Object obj) {
+        if (this == obj)
+            return true;
+        if (obj == null)
+            return false;
+        if (getClass() != obj.getClass())
+            return false;
+        Jogo other = (Jogo) obj;
+        return Objects.equals(id, other.id);
+    }
 }

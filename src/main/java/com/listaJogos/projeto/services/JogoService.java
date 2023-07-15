@@ -9,6 +9,7 @@ import org.springframework.transaction.annotation.Transactional;
 import com.listaJogos.projeto.dto.JogoDto;
 import com.listaJogos.projeto.dto.JogoMinDto;
 import com.listaJogos.projeto.models.Jogo;
+import com.listaJogos.projeto.projections.JogoMinProjection;
 import com.listaJogos.projeto.repositorys.JogoRepository;
 
 
@@ -30,5 +31,12 @@ public class JogoService {
     public JogoDto findById(Long id){
         Jogo resultado = jogoRepository.findById(id).get();
         return new JogoDto(resultado);
+    }
+
+    @Transactional(readOnly = true)
+    public List<JogoMinDto> findByList(Long listId){
+        List<JogoMinProjection> resultado = jogoRepository.searchByList(listId);
+        List<JogoMinDto> dtos = resultado.stream().map(j -> new JogoMinDto(j)).toList();
+        return dtos;
     }
 }
