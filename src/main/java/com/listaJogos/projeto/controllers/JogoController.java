@@ -20,13 +20,13 @@ public class JogoController {
     @Autowired
     JogoService jogoService;
 
-    @GetMapping("/buscar")
+    @GetMapping("/buscarJogo")
     public List<JogoMinDto> buscarTodosJogos() {
         List<JogoMinDto> resultado = jogoService.findAll();
         return resultado;
     }
 
-    @GetMapping("/buscar/{id}")
+    @GetMapping("/buscarJogo/{id}")
     public JogoDto buscarUmJogo(@PathVariable(value = "id") Long id){
         JogoDto resultado = jogoService.findById(id);
         return resultado;
