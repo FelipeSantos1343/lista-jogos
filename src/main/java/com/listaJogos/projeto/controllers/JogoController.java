@@ -9,7 +9,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.listaJogos.projeto.dto.JogoDto;
-import com.listaJogos.projeto.models.Jogo;
 import com.listaJogos.projeto.services.JogoService;
 
 @RestController

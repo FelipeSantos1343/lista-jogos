@@ -17,7 +17,7 @@ public class JogoService {
 
     public List<JogoDto> findAll(){
         List<Jogo> resultado = jogoRepository.findAll();
-        List<JogoDto> dtos = resultado.stream().map(jogo -> new JogoDto(jogo)).toList();
+        List<JogoDto> dtos = resultado.stream().map(j -> new JogoDto(j)).toList();
         return dtos;
     }
 }
