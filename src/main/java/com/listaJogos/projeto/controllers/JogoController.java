@@ -5,10 +5,12 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.listaJogos.projeto.dto.JogoDto;
+import com.listaJogos.projeto.dto.JogoMinDto;
 import com.listaJogos.projeto.services.JogoService;
 
 @RestController
@@ -19,8 +21,14 @@ public class JogoController {
     JogoService jogoService;
 
     @GetMapping("/buscar")
-    public List<JogoDto> buscarTodosJogos(){
-        List<JogoDto> resultado = jogoService.findAll();
+    public List<JogoMinDto> buscarTodosJogos() {
+        List<JogoMinDto> resultado = jogoService.findAll();
+        return resultado;
+    }
+
+    @GetMapping("/buscar/{id}")
+    public JogoDto buscarUmJogo(@PathVariable(value = "id") Long id){
+        JogoDto resultado = jogoService.findById(id);
         return resultado;
     }
 }
