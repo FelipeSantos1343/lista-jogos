@@ -11,14 +11,14 @@ public class PertencimentoPk {
     private Jogo jogo;
     @ManyToOne
     @JoinColumn(name = "lista_id")
-    private JogoList JogoList;
+    private JogoList jogoList;
     
     public PertencimentoPk(){
     }
 
     public PertencimentoPk(Jogo jogo, JogoList jogoList){
         this.jogo = jogo;
-        this.JogoList = jogoList;
+        this.jogoList = jogoList;
     }
 
     public Jogo getJogo() {
@@ -30,11 +30,11 @@ public class PertencimentoPk {
     }
 
     public JogoList getJogoList() {
-        return JogoList;
+        return jogoList;
     }
 
     public void setJogoList(JogoList jogoList) {
-        JogoList = jogoList;
+        this.jogoList = jogoList;
     }
 
     @Override
@@ -42,7 +42,7 @@ public class PertencimentoPk {
         final int prime = 31;
         int result = 1;
         result = prime * result + ((jogo == null) ? 0 : jogo.hashCode());
-        result = prime * result + ((JogoList == null) ? 0 : JogoList.hashCode());
+        result = prime * result + ((jogoList == null) ? 0 : jogoList.hashCode());
         return result;
     }
 
@@ -60,13 +60,15 @@ public class PertencimentoPk {
                 return false;
         } else if (!jogo.equals(other.jogo))
             return false;
-        if (JogoList == null) {
-            if (other.JogoList != null)
+        if (jogoList == null) {
+            if (other.jogoList != null)
                 return false;
-        } else if (!JogoList.equals(other.JogoList))
+        } else if (!jogoList.equals(other.jogoList))
             return false;
         return true;
     }
+
+    
 
     
 }
