@@ -8,6 +8,7 @@ import org.springframework.stereotype.Repository;
 
 import com.listaJogos.projeto.models.Jogo;
 import com.listaJogos.projeto.projections.JogoMinProjection;
+
 @Repository
 public interface JogoRepository extends JpaRepository<Jogo, Long>{
     @Query(nativeQuery = true, value = """
